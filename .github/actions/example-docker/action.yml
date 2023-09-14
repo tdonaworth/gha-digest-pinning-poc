@@ -1,13 +1,8 @@
-name: Example Docker Action
+name: Example Docker-Action
 description: A GitHub Action that runs a Docker container.
 runs:
   using: composite
   steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
-    - name: Build Docker image
-      shell: bash
-      run: docker build -t my-docker-image .
     - name: Run Docker container
       shell: bash
-      run: docker run my-docker-image
+      run: docker run tdonaworth/digest-pinning-poc:1.0

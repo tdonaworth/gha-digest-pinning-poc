@@ -1,11 +1,35 @@
 name: CI
-on: [push]
+on:
+  workflow_dispatch:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches: [main]
+    paths-ignore:
+      - '.github/**' # We don't want to trigger when we update the workflows.
+      - '*.md' # We don't want to trigger when we update the docs.
+
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+
     - name: Checkout code
-      uses: actions/checkout@v3
-    - name: Hello World
-      run: docker run hello-world
+      uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
+
+      # This is an example of running a docker-action
+    - name: Docker Action (local)
+      uses: ./.github/actions/example-docker
+
+      # This action uses a versioned tag for pinning, it's secure right?!?
+    - name: Docker Action (remote)
+      id: docker-action
+      uses: tdonaworth/gha-digest-pinning-poc-docker-action@v1.0.0
+      with:
+        who-to-greet: 'G-Security'
+
+      # Use the output from the `hello` step
+    - name: Get the output time
+      run: echo "The time was ${{ steps.docker-action.outputs.time }}"
