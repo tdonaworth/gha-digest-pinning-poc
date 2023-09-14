@@ -59,7 +59,7 @@ Now when I run the same GHA, I get the following output:
 :exclamation: As yu can see, the GHA in our pipeline didn't change, but the output from the execution did!
 
 ## tl;dr - Audit Your GHAs; 
-Audit ![audit-all-the-things](doc/image-1.png)
+![audit-all-the-things](doc/image-1.png)
 
 
 
