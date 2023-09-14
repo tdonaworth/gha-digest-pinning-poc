@@ -24,7 +24,7 @@ jobs:
       # This action uses a versioned tag for pinning, it's secure right?!?
     - name: Docker Action (remote)
       id: docker-action
-      uses: tdonaworth/gha-digest-pinning-poc-docker-action@v1.0.0
+      uses: tdonaworth/gha-digest-pinning-poc-docker-action@v1.1.0
       with:
         who-to-greet: 'G-Security-1'
 
