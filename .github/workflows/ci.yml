@@ -28,7 +28,7 @@ jobs:
       id: docker-action
       uses: tdonaworth/gha-digest-pinning-poc-docker-action@v1.0.0
       with:
-        who-to-greet: 'G-Security'
+        who-to-greet: 'G-Security-1'
 
       # Use the output from the `hello` step
     - name: Get the output time
